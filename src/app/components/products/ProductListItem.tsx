@@ -1,12 +1,20 @@
 import Image from "next/image";
+import { ProductType } from "./ProductList";
+import React from "react";
 
-const ProductListItem = () => {
+interface ProductProps {
+    product: ProductType
+}
+
+const ProductListItem: React.FC<ProductProps> = ({
+    product
+}) => {
     return (
         <div className="cursor-point">
             <div className="relative overflow-hidden aspect-square rounded-xl">
                 <Image 
                     fill
-                    src="/beach_1.jpg"
+                    src={product.image_url}
                     sizes="(max-width: 768px) 768px, (max-width: 1200px): 768px, 768px"
                     className="hover:scale-110 object-cover transition h-full w-full"
                     alt="Beach house"
@@ -14,11 +22,11 @@ const ProductListItem = () => {
             </div>
 
             <div className="mt-2">
-                <p className="text-lg font-bold">Product</p>
+                <p className="text-lg font-bold">{product.title}</p>
             </div>
 
             <div className="mt-2">
-                <p className="text-sm text-gray-500"><strong>$400</strong> per night</p>
+                <p className="text-sm text-gray-500"><strong>${product.price_per_night}</strong> per night</p>
             </div>
         </div>
     )
