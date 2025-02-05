@@ -1,5 +1,6 @@
 'use client';
 
+import apiService from "@/app/services/apiService";
 import { useEffect, useState } from "react";
 import ProductListItem from "./ProductListItem"
 
@@ -13,20 +14,9 @@ export type ProductType = {
 const ProductList = () => {
     const [products, setProducts] = useState<ProductType[]>([]);
     const getProducts = async () => {
-        const url = 'http://localhost:8000/api/products/';
+        const tmpProducts = await apiService.get('/api/products/');
 
-        await fetch(url, {
-            method: 'GET',
-        })
-            .then(response => response.json())
-            .then((json) => {
-                console.log('json', json)
-
-                setProducts(json.data)
-            })
-            .catch((error) => {
-                console.log('error', error);
-            });
+        setProducts(tmpProducts.data);
     };
 
     useEffect(() => {
