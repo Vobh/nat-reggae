@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import Login from "./components/modals/Login";
 import Signup from "./components/modals/Signup";
+import AddProduct from "./components/modals/AddProduct";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
         </div>
         <Login />
         <Signup />
+        <AddProduct />
       </body>
     </html>
   );

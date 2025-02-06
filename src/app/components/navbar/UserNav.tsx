@@ -13,7 +13,7 @@ interface UserNavProps {
 const UserNav: React.FC<UserNavProps> = ({
     userId
 }) => {
-    const login = useLogin(); // 5:53:24
+    const login = useLogin();
     const signup = useSignup();
     const [isOpen, setIsOpen] = useState(false);
 

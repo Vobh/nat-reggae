@@ -25,7 +25,9 @@ const Navbar = async () => {
                     </div>
 
                     <div className="flex items-center space-x-6">
-                        <AddProductButton />
+                        <AddProductButton 
+                            userId={userId}
+                        />
 
                         <UserNav 
                             userId={userId}
