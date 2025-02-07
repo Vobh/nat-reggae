@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from "react";
 import Image from "next/image";
-import Modal from "./modal";
 
-import useAddProduct from "@/app/hooks/useAddProduct";
+import { useState } from "react";
+import Modal from "./modal";
 import CustomButton from "../forms/CustomButton";
 import Categories from "../addproduct/Categories";
+
+import useAddProduct from "@/app/hooks/useAddProduct";
 import SelectCountry, { SelectCountryValue } from "../forms/SelectCountry";
 
 const AddProduct = () => {
@@ -78,8 +79,8 @@ const AddProduct = () => {
                     </div>
 
                     <CustomButton 
-                        label="Previous"
-                        className="mb-2 bg-black hover:bg-gray-800"
+                        label='Previous'
+                        className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(1)}
                     />
                     
