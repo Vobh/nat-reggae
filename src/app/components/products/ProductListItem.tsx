@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ProductType } from "./ProductList";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 interface ProductProps {
     product: ProductType
@@ -9,8 +10,12 @@ interface ProductProps {
 const ProductListItem: React.FC<ProductProps> = ({
     product
 }) => {
+    const router = useRouter();
     return (
-        <div className="cursor-point">
+        <div 
+            className="cursor-point"
+            onClick={() => router.push(`/products/${product.id}`)}
+        >
             <div className="relative overflow-hidden aspect-square rounded-xl">
                 <Image 
                     fill
