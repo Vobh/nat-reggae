@@ -33,7 +33,7 @@ const ConversationDetail = () => {
                 <CustomButton 
                     label='Send'
                     onClick={() => console.log('PUT4 M3RD4 ⭐')}
-                    className="w-[100px]"
+                    className="w-[100px] py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                 />
             </div>
         </>

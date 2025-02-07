@@ -16,12 +16,13 @@ const Login = () => {
     const [errors, setErrors] = useState<string[]>([]);
 
     const submitLogin = async () => {
+        
         const formData = {
             email: email,
             password: password
         }
 
-        const response = await apiService.post('/api/auth/login/', JSON.stringify(formData))
+        const response = await apiService.postWithoutToken('/api/auth/login/', JSON.stringify(formData))
 
         if (response.access) {
             handleLogin(response.user.pk, response.access, response.refresh);
@@ -56,6 +57,7 @@ const Login = () => {
 
                 <CustomButton
                     label="📥 Submit"
+                    className="w-full py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                     onClick={submitLogin}
                 />
             </form>

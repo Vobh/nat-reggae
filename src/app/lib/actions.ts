@@ -1,6 +1,5 @@
 'use server';
 
-import exp from "constants";
 import { cookies } from "next/headers";
 
 export async function handleLogin(userId: string, accessToken: string, refreshToken: string) {
@@ -38,4 +37,10 @@ export async function resetAuthCookies() {
 export async function getUserId() {
     const userId = (await cookies()).get('session_userid')?.value
     return userId ? userId : null
+}
+
+export async function getAccessToken() {
+    let accessToken = (await cookies()).get('session_access_token')?.value;
+
+    return accessToken;
 }

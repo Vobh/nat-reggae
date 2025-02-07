@@ -2,17 +2,20 @@
 
 import Image from "next/image";
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Modal from "./modal";
 import CustomButton from "../forms/CustomButton";
 import Categories from "../addproduct/Categories";
 
 import useAddProduct from "@/app/hooks/useAddProduct";
 import SelectCountry, { SelectCountryValue } from "../forms/SelectCountry";
+import apiService from "@/app/services/apiService";
+import { useRouter } from "next/navigation";
 
 const AddProduct = () => {
     //
     // States
+
     const [currentStep, setCurrentStep] = useState(1);
     const [dataCategory, setDataCategory] = useState('');
     const [dataTitle, setDataTitle] = useState('');
@@ -20,17 +23,66 @@ const AddProduct = () => {
     const [dataPrice, setDataPrice] = useState('');
     const [dataDays, setDataDays] = useState('');
     const [dataCountry, setDataCountry] = useState<SelectCountryValue>();
+    const [dataImage, setDataImage] = useState<File | null>(null);
 
     //
     //
 
     const addProduct = useAddProduct();
+    const router = useRouter()
 
     //
     // Set datas
 
     const setCategory = (category: string) => {
         setDataCategory(category)
+    }
+
+    const setImage = (event: ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files && event.target.files.length > 0) {
+            const tmpImage = event.target.files[0];
+
+            setDataImage(tmpImage);
+        }
+    }
+
+    //
+    // Submit
+
+    const submitForm = async () => {
+        console.log('submitForm');
+
+        if (
+            dataCategory &&
+            dataTitle &&
+            dataDescription &&
+            dataPrice &&
+            dataDays &&
+            dataCountry &&
+            dataImage
+        ) {
+            const formData = new FormData();
+            formData.append('category', dataCategory);
+            formData.append('title', dataTitle);
+            formData.append('description', dataDescription);
+            formData.append('price_per_night', dataPrice);
+            formData.append('days', dataDays);
+            formData.append('country', dataCountry.label);
+            formData.append('country_code', dataCountry.value);
+            formData.append('image', dataImage);
+
+            const response = await apiService.post('/api/products/create/', formData);
+
+            if (response.success) {
+                console.log('Success :-)');
+
+                router.push('/');
+
+                addProduct.close();
+            } else {
+                console.log('Error');
+            }
+        }
     }
 
     //
@@ -51,6 +103,7 @@ const AddProduct = () => {
                     <CustomButton 
                         label="Next"
                         onClick={() => setCurrentStep(2)}
+                        className="w-full py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                     />
                 </>
             ) : currentStep == 2 ? (
@@ -80,13 +133,14 @@ const AddProduct = () => {
 
                     <CustomButton 
                         label='Previous'
-                        className='mb-2 bg-black hover:bg-gray-800'
+                        className='w-full py-4 mb-2 bg-black hover:bg-gray-800 text-white text-center rounded-xl transition cursor-pointer'
                         onClick={() => setCurrentStep(1)}
                     />
                     
                     <CustomButton 
                         label="Next"
                         onClick={() => setCurrentStep(3)}
+                        className="w-full py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                     />
                 </>
             ) : currentStep == 3 ? (
@@ -117,13 +171,14 @@ const AddProduct = () => {
 
                     <CustomButton 
                         label="Previous"
-                        className="mb-2 bg-black hover:bg-gray-800"
+                        className='w-full py-4 mb-2 bg-black hover:bg-gray-800 text-white text-center rounded-xl transition cursor-pointer'
                         onClick={() => setCurrentStep(2)}
                     />
                     
                     <CustomButton 
                         label="Next"
                         onClick={() => setCurrentStep(4)}
+                        className="w-full py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                     />
                 </>
             ) : currentStep == 4 ? (
@@ -139,13 +194,14 @@ const AddProduct = () => {
                     
                     <CustomButton 
                         label="Previous"
-                        className="mb-2 bg-black hover:bg-gray-800"
+                        className='w-full py-4 mb-2 bg-black hover:bg-gray-800 text-white text-center rounded-xl transition cursor-pointer'
                         onClick={() => setCurrentStep(3)}
                     />
                     
                     <CustomButton 
                         label="Next"
                         onClick={() => setCurrentStep(5)}
+                        className="w-full py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                     />
                 </>
             ) : (
@@ -153,18 +209,36 @@ const AddProduct = () => {
                     <h2 className="mb-6 text-2xl">Image</h2>
 
                     <div className="pt-3 pb-6 space-y-4">
-                        <>6:46:06</>
+                        <div className="py-4 px-6 bg-gray-600 text-white rounded-xl">
+                            <input 
+                                type="file"
+                                accept="image/*"
+                                onChange={setImage}
+                            />
+                        </div>
+
+                        {dataImage && (
+                            <div className="w-[200px] h-[150px] relative">
+                                <Image 
+                                    fill
+                                    alt="Uploaded image"
+                                    src={URL.createObjectURL(dataImage)}
+                                    className="w-full h-full object-cover rounded-xl"
+                                />
+                            </div>
+                        )}
                     </div>
 
                     <CustomButton 
                         label="Previous"
-                        className="mb-2 bg-black hover:bg-gray-800"
-                        onClick={() => console.log('Submit')}
+                        className='w-full py-4 mb-2 bg-black hover:bg-gray-800 text-white text-center rounded-xl transition cursor-pointer'
+                        onClick={() => setCurrentStep(4)}
                     />
                     
                     <CustomButton 
                         label="Submit"
-                        onClick={() => setCurrentStep(5)}
+                        onClick={submitForm}
+                        className="w-full py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                     />
                 </>
             )}

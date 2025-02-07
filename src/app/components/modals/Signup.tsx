@@ -32,7 +32,7 @@ const Signup = () => {
             password2: password2
         }
 
-        const response = await apiService.post('/api/auth/register/', JSON.stringify(formData));
+        const response = await apiService.postWithoutToken('/api/auth/register/', JSON.stringify(formData));
 
         if (response.access) {
             handleLogin(response.user.pk, response.access, response.refresh);
@@ -73,6 +73,7 @@ const Signup = () => {
                 
                 <CustomButton
                     label="👤 Submit"
+                    className="w-full py-4 bg-natureggae hover:bg-natureggae-dark text-white text-center rounded-xl transition cursor-pointer"
                     onClick={submitSignup}
                 />
             </form>
