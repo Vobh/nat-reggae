@@ -1,9 +1,11 @@
 import Image from "next/image";
 import ReservationSidebar from "@/app/components/products/ReservationSidebar";
 import apiService from "@/app/services/apiService";
+import { getUserId } from "@/app/lib/actions";
 
-const ProductDetailPage = async ({params}: { params: {id: string} }) => {
-    const product = await apiService.get(`/api/products/${params.id}`)
+const ProductDetailPage = async ({params}: { params: {id: string}}) => {
+    const product = await apiService.get(`/api/products/${params.id}`);
+    const userId = await getUserId();
 
     return (
         <main className="max-w[1500px] mx-auto px-6 pb-6">
@@ -49,6 +51,7 @@ const ProductDetailPage = async ({params}: { params: {id: string} }) => {
 
                 <ReservationSidebar 
                     product={product}
+                    userId={userId}                    
                 />
             </div>
         </main>
