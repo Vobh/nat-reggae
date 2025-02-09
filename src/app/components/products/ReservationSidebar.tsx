@@ -35,6 +35,7 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [dateRange, setDateRange] = useState<Range>(initialDateRange);
     const [minDate, setMinDate] = useState<Date>(new Date());
+    const [bookedDates, setBookedDates] = useState<Date[]>([]);
     const [days, setDays] = useState<string>('1');
     const daysRange = Array.from({ length: product.days }, (_, index) => index + 1)
 
@@ -78,7 +79,26 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
         })
     }
 
+    const getReservations = async () => {
+        const  reservations = await apiService.get(`/api/products/${product.id}/reservations/`)
+
+        let dates: Date[] = [];
+
+        reservations.forEach((reservation: any) => {
+            const range = eachDayOfInterval({
+                start: new Date(reservation.start_date),
+                end: new Date(reservation.end_date)
+            });
+
+            dates = [...dates, ...range];
+        });
+
+        setBookedDates(dates);
+    }
+
     useEffect (() => {
+        getReservations();
+        
         if (dateRange.startDate && dateRange.endDate) {
             const dayCount = differenceInDays(
                 dateRange.endDate,
@@ -109,6 +129,7 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
 
             <DatePicker
                 value={dateRange}
+                bookedDates={bookedDates}
                 onChange={(value) => _setDateRange(value.selection)}
             />
 
