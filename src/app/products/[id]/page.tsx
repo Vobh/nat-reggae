@@ -4,6 +4,8 @@ import apiService from "@/app/services/apiService";
 import { getUserId } from "@/app/lib/actions";
 import Link from "next/link";
 
+// 8:49:04
+
 const ProductDetailPage = async ({params}: { params: {id: string}}) => {
     const product = await apiService.get(`/api/products/${params.id}`);
     const userId = await getUserId();
@@ -13,7 +15,7 @@ const ProductDetailPage = async ({params}: { params: {id: string}}) => {
             <div className="w-full h-[64vh] mb-4 overflow-hidden rounded-xl relative">
                 <Image
                     fill
-                    src="/beach_1.jpg"
+                    src={product.image_url}
                     className="object-cover w-full h-full"
                     alt="Beach house"
                 />

@@ -1,10 +1,12 @@
 'use client';
 
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import MenuLink from "./MenuLink";
 import useLogin from "@/app/hooks/useLogin";
 import useSignup from "@/app/hooks/useSignup";
 import LogoutButton from "../LogoutButton";
+import { Router } from "next/router";
 
 interface UserNavProps {
     userId?: string | null;
@@ -13,6 +15,7 @@ interface UserNavProps {
 const UserNav: React.FC<UserNavProps> = ({
     userId
 }) => {
+    const router = useRouter();
     const login = useLogin();
     const signup = useSignup();
     const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +38,25 @@ const UserNav: React.FC<UserNavProps> = ({
             {isOpen && (
                 <div className="w-[220px] absolute top-[60px] right-0 bg-white border rounded-xl shadow-md flex flex-col cursor-pointer">
                     {userId ? (
-                        <LogoutButton />
+                        <>
+                            <MenuLink 
+                                label="My products"
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    router.push('/myproducts');
+                                }}
+                            />
+
+                            <MenuLink 
+                                label="My reservations"
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    router.push('/myreservations');
+                                }}
+                            />
+
+                            <LogoutButton />
+                        </>
                     ) : (
                         <>    
                             <MenuLink 
