@@ -2,6 +2,7 @@ import Image from "next/image";
 import ReservationSidebar from "@/app/components/products/ReservationSidebar";
 import apiService from "@/app/services/apiService";
 import { getUserId } from "@/app/lib/actions";
+import Link from "next/link";
 
 const ProductDetailPage = async ({params}: { params: {id: string}}) => {
     const product = await apiService.get(`/api/products/${params.id}`);
@@ -28,7 +29,11 @@ const ProductDetailPage = async ({params}: { params: {id: string}}) => {
 
                     <hr />
 
-                    <div className="py-6 flex items-center space-x-4">
+                    <Link 
+                        href={`/vendors/${product.vendor.id}`}
+                        className="py-6 flex items-center space-x-4"
+
+                    >
                         {product.vendor.avatar_url && (
                             <Image 
                                 src={product.vendor.avatar_url}
@@ -40,7 +45,7 @@ const ProductDetailPage = async ({params}: { params: {id: string}}) => {
                         )}
 
                         <p><strong>{product.vendor.name}</strong> is your host</p>
-                    </div>
+                    </Link>
 
                     <hr />
 

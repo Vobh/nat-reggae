@@ -1,7 +1,7 @@
 'use client';
 
 import apiService from "@/app/services/apiService";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductListItem from "./ProductListItem"
 
 export type ProductType = {
@@ -11,10 +11,21 @@ export type ProductType = {
     image_url: string;
 }
 
-const ProductList = () => {
+interface ProductListProps {
+    vendor_id?: string | null;
+}
+
+const ProductList: React.FC<ProductListProps> = ({
+    vendor_id
+}) => {
     const [products, setProducts] = useState<ProductType[]>([]);
     const getProducts = async () => {
-        const tmpProducts = await apiService.get('/api/products/');
+        let url = '/api/products/';
+
+        if (vendor_id) {
+            url += `?vendor_id=${vendor_id}`
+        }
+        const tmpProducts = await apiService.get(url);
 
         setProducts(tmpProducts.data);
     };
