@@ -49,7 +49,14 @@ const ProductList: React.FC<ProductListProps> = ({
         }
         const tmpProducts = await apiService.get(url);
 
-        setProducts(tmpProducts.data);
+        setProducts(tmpProducts.data.map((product: ProductType) => {
+            if (tmpProducts.favorites.includes(product.id)) {
+                product.is_favorite = true
+            } else {
+                product.is_favorite = false
+            }
+            return product // 9:10:07
+        }));
     };
 
     useEffect(() => {
