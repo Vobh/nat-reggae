@@ -2,15 +2,19 @@ import Image from "next/image";
 import { ProductType } from "./ProductList";
 import React from "react";
 import { useRouter } from "next/navigation";
+import FavoriteButton from "../FavoriteButton";
 
 interface ProductProps {
-    product: ProductType
+    product: ProductType,
+    markFavorite?: (is_favorite: boolean) => void;
 }
 
 const ProductListItem: React.FC<ProductProps> = ({
-    product
+    product,
+    markFavorite
 }) => {
     const router = useRouter();
+
     return (
         <div 
             className="cursor-point"
@@ -24,6 +28,14 @@ const ProductListItem: React.FC<ProductProps> = ({
                     className="hover:scale-110 object-cover transition h-full w-full"
                     alt="Beach house"
                 />
+
+                {markFavorite && (
+                    <FavoriteButton 
+                        id={product.id}
+                        is_favorite={product.is_favorite}
+                        markFavorite={(is_favorite) => markFavorite(is_favorite)}
+                    />
+                )}
             </div>
 
             <div className="mt-2">
