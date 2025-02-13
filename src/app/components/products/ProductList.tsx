@@ -16,10 +16,12 @@ export type ProductType = {
 
 interface ProductListProps {
     vendor_id?: string | null;
+    favorites?: boolean | null;
 }
 
 const ProductList: React.FC<ProductListProps> = ({
-    vendor_id
+    vendor_id,
+    favorites
 }) => {
     const [products, setProducts] = useState<ProductType[]>([]);
 
@@ -46,6 +48,8 @@ const ProductList: React.FC<ProductListProps> = ({
 
         if (vendor_id) {
             url += `?vendor_id=${vendor_id}`
+        } else if (favorites) {
+            url  += '?is_favorites=true'
         }
         const tmpProducts = await apiService.get(url);
 
@@ -55,7 +59,7 @@ const ProductList: React.FC<ProductListProps> = ({
             } else {
                 product.is_favorite = false
             }
-            return product // 9:10:07
+            return product
         }));
     };
 
