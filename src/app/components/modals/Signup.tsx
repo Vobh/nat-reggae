@@ -26,7 +26,6 @@ const Signup = () => {
 
     const submitSignup = async () => {
         const formData = {
-            name: "Vigo",
             email: email,
             password1: password1,
             password2: password2
