@@ -27,7 +27,7 @@ const ContactButton: React.FC<ContactButtonProps> = ({
         } else {
             login.open();
         }
-    } // 10:50:10
+    }
 
     return (
         <div 

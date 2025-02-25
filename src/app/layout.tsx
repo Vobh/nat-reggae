@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Login from "./components/modals/Login";
 import Signup from "./components/modals/Signup";
 import AddProduct from "./components/modals/AddProduct";
+import SearchModal from "./components/modals/SearchModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
           {children}
         </div>
         <Login />
+        <SearchModal />
         <Signup />
         <AddProduct />
       </body>
