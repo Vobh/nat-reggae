@@ -6,7 +6,7 @@ interface CategoriesProps {
 }
 
 const Categories: React.FC<CategoriesProps> = ({
-    dataCategory,
+    dataCategory, // 11:48:42
     setCategory      
 }) => {
     return (
@@ -52,8 +52,8 @@ const Categories: React.FC<CategoriesProps> = ({
                 </div>
     
                 <div 
-                    onClick={() => setCategory('tiny homes')}
-                    className={`pb-4 flex flex-col font-bold items-center space-y-2 border-b-2 ${dataCategory == 'tiny homes' ? 'border-gray-800' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}
+                    onClick={() => setCategory('tiny_homes')}
+                    className={`pb-4 flex flex-col font-bold items-center space-y-2 border-b-2 ${dataCategory == 'tiny_homes' ? 'border-gray-800' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}
                 >
                     <Image 
                         src="/icn_category_beach.jpeg"

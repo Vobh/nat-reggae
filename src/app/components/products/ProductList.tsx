@@ -1,10 +1,11 @@
 'use client';
 
+import { useSearchParams } from "next/navigation";
+import { format } from "date-fns";
 import apiService from "@/app/services/apiService";
 import React, { useEffect, useState } from "react";
 import ProductListItem from "./ProductListItem"
-
-// 9:03:53
+import useSearchModal from "@/app/hooks/useSearchModal";
 
 export type ProductType = {
     id: string;
@@ -23,6 +24,13 @@ const ProductList: React.FC<ProductListProps> = ({
     vendor_id,
     favorites
 }) => {
+    const params = useSearchParams();
+    const searchModal = useSearchModal();
+    const country = searchModal.query.country;
+    const numDays = searchModal.query.days;
+    const checkinDate = searchModal.query.checkIn;
+    const checkoutDate = searchModal.query.checkOut;
+    const category = searchModal.query.category;
     const [products, setProducts] = useState<ProductType[]>([]);
 
     const markFavorite = (id: string, is_favorite: boolean) => {
@@ -50,7 +58,38 @@ const ProductList: React.FC<ProductListProps> = ({
             url += `?vendor_id=${vendor_id}`
         } else if (favorites) {
             url  += '?is_favorites=true'
+        } else {
+            let urlQuery = '';
+
+            if (country) {
+                urlQuery += '&country=' + country
+            }
+
+            if (numDays) {
+                urlQuery += '&numDays=' + numDays
+            }
+
+            if (category) {
+                urlQuery += '&category=' + category
+            }
+
+            if (checkinDate) {
+                urlQuery += '&checkin=' + format(checkinDate, 'yyyy-MM-dd')
+            }
+
+            if (checkoutDate) {
+                urlQuery += '&checkout=' + format(checkoutDate, 'yyyy-MM-dd')
+            }
+
+            if (urlQuery.length) {
+                console.log('Query:', urlQuery);
+
+                urlQuery = '?' + urlQuery.substring(1);
+
+                url += urlQuery;
+            }
         }
+
         const tmpProducts = await apiService.get(url);
 
         setProducts(tmpProducts.data.map((product: ProductType) => {
@@ -65,7 +104,7 @@ const ProductList: React.FC<ProductListProps> = ({
 
     useEffect(() => {
         getProducts();
-    }, []);
+    }, [category, searchModal.query, params]);
     
     return (
         <>
