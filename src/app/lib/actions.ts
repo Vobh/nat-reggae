@@ -21,7 +21,7 @@ export async function handleRefresh() {
         .then (async (json) => {
             console.log('Response - Refresh:', json);
 
-            if (json.access) { // 11:55:54 error
+            if (json.access) { // 11:55:54
                 (await cookies()).set ('session_access_token', json.access, {
                     httpOnly: true,
                     secure: process.env.NODE_ENV === 'production',

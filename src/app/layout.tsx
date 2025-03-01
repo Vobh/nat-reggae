@@ -6,6 +6,7 @@ import Login from "./components/modals/Login";
 import Signup from "./components/modals/Signup";
 import AddProduct from "./components/modals/AddProduct";
 import SearchModal from "./components/modals/SearchModal";
+import CartProvider from "./components/provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,14 +36,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <div className="pt-32">
-          {children}
-        </div>
-        <Login />
-        <SearchModal />
-        <Signup />
-        <AddProduct />
+        <CartProvider>
+          <Navbar />
+          <div className="pt-32">
+            {children}
+          </div>
+          <Login />
+          <SearchModal />
+          <Signup />
+          <AddProduct />
+        </CartProvider>
       </body>
     </html>
   );

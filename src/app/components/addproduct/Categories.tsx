@@ -48,7 +48,7 @@ const Categories: React.FC<CategoriesProps> = ({
                         width={30}
                         height={30}
                     />
-                    <span className="text-sm">Cabin</span>
+                    <span className="text-sm">Cabins</span>
                 </div>
     
                 <div 

@@ -1,13 +1,17 @@
 import Image from "next/image";
+import React, {Suspense} from "react";
+
 import Link from "next/link";
 import SearchFilters from "./SearchFilters";
 import UserNav from "./UserNav";
 import { getUserId } from "@/app/lib/actions";
 import AddProductButton from "./AddProductButton";
+import OpenCart from "../cart/open-cart";
+import Cart from "../cart";
 
 const Navbar = async () => {
     const userId = await getUserId();
-    return (
+    return (        
         <nav className="w-full fixed top-0 left-0 py-6 border-b bg-white z-10">
             <div className="max-w[1500px] mx-auto px-6">
                 <div className="flex justify-between items-center">
@@ -32,6 +36,12 @@ const Navbar = async () => {
                         <UserNav 
                             userId={userId}
                         />
+                    </div>
+
+                    <div className="flex items-center justify-end space-x-6">
+                        <Suspense fallback={<OpenCart/>}>
+                            <Cart/>
+                        </Suspense>
                     </div>
                 </div>
             </div>
