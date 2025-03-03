@@ -1,16 +1,53 @@
-import ProductCard from '../components/productCard'
-import {Product} from '@/types/type'
-import { data } from '../../../data/product'
+'use client';
 
-export default function Shop() {
+import ProductCard from '../components/productCard';
+import { useEffect, useState } from 'react';
+
+export type ProductType = {
+    id: string;
+    name: string;
+    price: number;
+    image_url: string;
+    imageAlt: string;
+}
+
+export default function Product() {
+    const [products, setProducts] = useState<ProductType[]>([]);
+    // 4:41:36
+    const getProducts = async () => {
+        const url = 'http://localhost:8000/api/shops/';
+
+        await fetch(url, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then((json) => {
+            // console.log('json', json);
+
+            setProducts(json.data)
+        })
+        .catch((error) => {
+            console.log('error', error);
+        });
+    };
+
+    useEffect(() => {
+        getProducts();
+    });
+
     return (
-        <section className="w-full h-full mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8 bg-white">
-            <h2 className="text-4xl text-black py-8">Products</h2>
-
+        <section className="max-w-[1500px] mx-auto px-6 pb-6">
+            <h2 className="my-6 mb-6 text-2xl">Products</h2>
+            
             <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                {data.map((product: Product) => (
-                    <ProductCard key={product.id} product={product}/>
-                ))}
+                {products.map((product: ProductType) => {
+                    return (
+                        <ProductCard 
+                            key={product.id} 
+                            product={product}
+                        />
+                    )
+                })}
             </div>
         </section>
     )

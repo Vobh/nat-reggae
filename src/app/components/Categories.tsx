@@ -24,7 +24,7 @@ const Categories = () => {
     }
 
     return (
-        <div className="pt-3 cursor-pointer pb-6 flex items-center space-x-12">
+        <div className="overflow-x-auto pt-3 cursor-pointer pb-6 flex items-center space-x-12">
             <div 
                 onClick={() => _setCategory('')}
                 className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == '' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>

@@ -61,9 +61,13 @@ export default function AddToCart({product}: Props) {
                     <span className="m-auto text-base">+</span>
                 </button>
             </div>
-            <button aria-label="Add item to cart" title="Add Item to Cart" disabled={isPending}
-                    className='w-full border mt-4 py-2 px-8 rounded-lg hover:bg-black hover:text-white'
-                    onClick={() => addItem(product, {count: quantity})}><span>Add To Cart</span></button>
-        </>
+            <button 
+                aria-label="Add item to cart" title="Add Item to Cart" disabled={isPending}
+                className='w-full border mt-4 py-2 px-8 rounded-lg hover:bg-black hover:text-white'
+                onClick={() => addItem(product, {count: quantity})}
+                >
+                    <span>Add To Cart</span>
+                </button>
+    </>
     )
 }

@@ -6,7 +6,7 @@ export type _CartItem = {
     quantity: number;
 }
 
-export type Product = {
+export type _Product = {
     id: string;
     name: string;
     price: number;

@@ -4,8 +4,6 @@ import apiService from "@/app/services/apiService";
 import { getUserId } from "@/app/lib/actions";
 import Link from "next/link";
 
-// 8:49:04
-
 const ProductDetailPage = async ({params}: { params: {id: string}}) => {
     const product = await apiService.get(`/api/products/${params.id}`);
     const userId = await getUserId();

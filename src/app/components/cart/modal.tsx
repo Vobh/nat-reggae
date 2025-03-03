@@ -54,8 +54,9 @@ export default function CartModal() {
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                         <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                                             <div className="flex items-start justify-between">
-                                                <Dialog.Title className="text-lg font-medium text-gray-900">Shopping
-                                                    cart</Dialog.Title>
+                                                <Dialog.Title className="text-lg font-medium text-gray-900">
+                                                    Shopping cart
+                                                </Dialog.Title>
                                                 <div className="ml-3 flex h-7 items-center">
                                                     <button
                                                         type="button"

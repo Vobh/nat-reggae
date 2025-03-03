@@ -6,7 +6,6 @@ import MenuLink from "./MenuLink";
 import useLogin from "@/app/hooks/useLogin";
 import useSignup from "@/app/hooks/useSignup";
 import LogoutButton from "../LogoutButton";
-import { Router } from "next/router";
 
 interface UserNavProps {
     userId?: string | null;
@@ -44,6 +43,14 @@ const UserNav: React.FC<UserNavProps> = ({
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/inbox');
+                                }}
+                            />
+
+                            <MenuLink 
+                                label="Shop"
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    router.push('/shop');
                                 }}
                             />
 

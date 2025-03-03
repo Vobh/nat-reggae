@@ -19,7 +19,7 @@ export default function CartItem({item}: Props) {
                 {name} <span className="text-xs">({quantity})</span>
             </div>
             <div className="ml-auto">
-                {formatCurrencyString({value: price, currency: "USD"})}
+                {formatCurrencyString({value: price, currency: "BRL"})}
             </div>
             <button
                 onClick={() => handleRemoveItem()}

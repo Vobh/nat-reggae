@@ -32,7 +32,7 @@ const ProductList: React.FC<ProductListProps> = ({
     const checkoutDate = searchModal.query.checkOut;
     const category = searchModal.query.category;
     const [products, setProducts] = useState<ProductType[]>([]);
-
+                                            // importar o tipo no productlist = (page.tsx)
     const markFavorite = (id: string, is_favorite: boolean) => {
         const tmpProducts = products.map((product: ProductType) => {
             if (product.id == id) {
