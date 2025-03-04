@@ -99,7 +99,7 @@ const AddProduct = () => {
         <>
             {currentStep == 1 ? (
                 <>
-                    <h2 className="mb-6 text-2xl">Choose category</h2>
+                    <h2 className="mb-6 text-2xl">Estilo do artista</h2>
                     <div className="w-full p-4 mb-4 bg-purple-100 hover:bg-white border border-gray-600 rounded-xl">
                         <Categories 
                             dataCategory={dataCategory}
@@ -115,11 +115,11 @@ const AddProduct = () => {
                 </>
             ) : currentStep == 2 ? (
                 <>
-                    <h2 className="mb-6 text-2xl">Describe your show</h2>
+                    <h2 className="mb-6 text-2xl">Detalhes do show</h2>
 
                     <div className="pt-3 pb-6 space-y-4">
                         <div className="flex flex-col space-y-2">
-                            <label>Title</label>
+                            <label>Nome do artista</label>
                             <input
                                 type="text"
                                 value={dataTitle}
@@ -129,7 +129,7 @@ const AddProduct = () => {
                         </div>
 
                         <div className="flex flex-col space-y-2">
-                            <label>Description</label>
+                            <label>Descrição do evento</label>
                             <textarea
                                 value={dataDescription}
                                 onChange={(e) => setDataDescription(e.target.value)}
@@ -152,11 +152,11 @@ const AddProduct = () => {
                 </>
             ) : currentStep == 3 ? (
                 <>
-                    <h2 className="mb-6 text-2xl">Details</h2>
+                    <h2 className="mb-6 text-2xl">Outros detalhes</h2>
 
                     <div className="pt-3 pb-6 space-y-4">
                         <div className="flex flex-col space-y-2">
-                            <label>Price per nigth</label>
+                            <label>Preço por ingresso</label>
                             <input
                                 type="number"
                                 value={dataPrice}
@@ -166,7 +166,7 @@ const AddProduct = () => {
                         </div>
 
                         <div className="flex flex-col space-y-2">
-                            <label>Days</label>
+                            <label>Quantos dias de show</label>
                             <input
                                 type="number"
                                 value={dataDays}
@@ -190,7 +190,7 @@ const AddProduct = () => {
                 </>
             ) : currentStep == 4 ? (
                 <>
-                    <h2 className="mb-6 text-2xl">Location</h2>
+                    <h2 className="mb-6 text-2xl">País</h2>
 
                     <div className="pt-3 pb-6 space-y-4">
                         <SelectCountry
@@ -213,7 +213,7 @@ const AddProduct = () => {
                 </>
             ) : (
                 <>
-                    <h2 className="mb-6 text-2xl">Image</h2>
+                    <h2 className="mb-6 text-2xl">Foto do artista</h2>
 
                     <div className="pt-3 pb-6 space-y-4">
                         <div className="py-4 px-6 bg-gray-600 text-white rounded-xl">
@@ -268,7 +268,7 @@ const AddProduct = () => {
             <Modal
                 isOpen={addProduct.isOpen}
                 close={addProduct.close}
-                label="Add Product"
+                label="Seu show aqui!"
                 content={content}
             />
         </>

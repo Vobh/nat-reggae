@@ -13,7 +13,7 @@ export type ProductType = {
 
 export default function Product() {
     const [products, setProducts] = useState<ProductType[]>([]);
-    // 4:41:36
+    
     const getProducts = async () => {
         const url = 'http://localhost:8000/api/shops/';
 
@@ -22,7 +22,7 @@ export default function Product() {
         })
         .then(response => response.json())
         .then((json) => {
-            // console.log('json', json);
+            console.log('json', json);
 
             setProducts(json.data)
         })

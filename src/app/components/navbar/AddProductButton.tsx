@@ -26,7 +26,7 @@ const AddProductButton: React.FC<AddProductButtonProps> = ({
             onClick={yourHome}
             className="cursor-pointer p-2 text-sm font-semibold rounded-full hover:bg-gray-200"
         >
-            Natureggae your home
+            Seu show aqui!
         </div>
     )
 }

@@ -29,7 +29,7 @@ const Categories = () => {
                 onClick={() => _setCategory('')}
                 className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == '' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
                 <Image 
-                    src="/icn_category_beach.jpeg"
+                    src="/World.png"
                     alt="Category - Beach"
                     width={30}
                     height={30}
@@ -38,51 +38,195 @@ const Categories = () => {
             </div>
 
             <div 
-                onClick={() => _setCategory('beach')}
-                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'beach' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                onClick={() => _setCategory('axe')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'axe' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
                 <Image 
-                    src="/icn_category_beach.jpeg"
+                    src="/Axe.png"
                     alt="Category - Beach"
                     width={30}
                     height={30}
                 />
-                <span className="text-xs">Beach</span>
+                <span className="text-xs">Axé</span>
             </div>
 
             <div 
-                onClick={() => _setCategory('villas')}
-                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'villas' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                onClick={() => _setCategory('forro')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'forro' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
                 <Image 
-                    src="/icn_category_beach.jpeg"
+                    src="/Forro.png"
                     alt="Category - Beach"
                     width={30}
                     height={30}
                 />
-                <span className="text-xs">Villas</span>
+                <span className="text-xs">Forró</span>
             </div>
 
             <div 
-                onClick={() => _setCategory('cabin')}
-                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'cabins' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                onClick={() => _setCategory('vaqueijada')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'vaqueijada' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
                 <Image 
-                    src="/icn_category_beach.jpeg"
+                    src="/Vaqueijada.png"
                     alt="Category - Beach"
                     width={30}
                     height={30}
                 />
-                <span className="text-xs">Cabins</span>
+                <span className="text-xs">Vaqueijada</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('seresta')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'seresta' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Seresta.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Seresta</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('soul')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'soul' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Soul.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Soul</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('reggae')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'reggae' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Reggae.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Reggae</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('lambada')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'lambada' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Lambada.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Lambada</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('pisadinha')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'pisadinha' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Pisadinha.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Pisadinha</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('brega')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'brega' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Brega.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Bregão</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('mpb')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'mpb' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Mpb.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">MPB</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('jovemguarda')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'jovemguarda' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/JovemGuarda.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">JovemGuarda</span>
             </div>
 
             <div
-                onClick={() => _setCategory('tiny_homes')} 
-                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'tiny_homes' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                onClick={() => _setCategory('sertanejo')} 
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'sertanejo' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
                 <Image 
-                    src="/icn_category_beach.jpeg"
+                    src="/Sertanejo.png"
                     alt="Category - Beach"
                     width={30}
                     height={30}
                 />
-                <span className="text-xs">Tiny homes</span>
+                <span className="text-xs">Sertanejo</span>
+            </div>
+
+            <div
+                onClick={() => _setCategory('rock')} 
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'rock' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Rock.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Rock</span>
+            </div>
+
+            <div
+                onClick={() => _setCategory('samba')} 
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'samba' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Samba.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Samba</span>
+            </div>
+
+            <div 
+                onClick={() => _setCategory('funk')}
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'funk' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Funk.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Funk</span>
+            </div>
+
+            <div
+                onClick={() => _setCategory('gospel')} 
+                className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${category == 'gospel' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
+                <Image 
+                    src="/Gospel.png"
+                    alt="Category - Beach"
+                    width={30}
+                    height={30}
+                />
+                <span className="text-xs">Gospel</span>
             </div>
         </div>
     )
