@@ -37,7 +37,7 @@ const Signup = () => {
             handleLogin(response.user.pk, response.access, response.refresh);
             signup.close();
 
-            router.push('/')
+            router.push('/shows')
         } else {
             const tmpErrors: string[] = Object.values(response).map((error: any) => {
                 return error;

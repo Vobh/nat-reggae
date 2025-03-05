@@ -77,7 +77,7 @@ const AddProduct = () => {
             if (response.success) {
                 console.log('Success :-)');
 
-                router.push('/?added=true');
+                router.push('/shows/?added=true');
 
                 addProduct.close();
             } else {

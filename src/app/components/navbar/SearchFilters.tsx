@@ -18,18 +18,18 @@ const SearchFilters = () => {
                     </div>
 
                     <div className="cursor-pointer h-[48px] lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
-                        <p className="text-xs font-semibold">Check in</p>
-                        <p className="text-sm">Add dates</p>
+                        <p className="text-xs font-semibold">Primeiro dia</p>
+                        <p className="text-sm">Data</p>
                     </div>
 
                     <div className="cursor-pointer h-[48px] lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
-                        <p className="text-xs font-semibold">Check out</p>
-                        <p className="text-sm">Add dates</p>
+                        <p className="text-xs font-semibold">Último dia</p>
+                        <p className="text-sm">Data</p>
                     </div>
 
                     <div className="cursor-pointer h-[48px] lg:h-[64px] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
-                        <p className="text-xs font-semibold">Dias</p>
-                        <p className="text-sm">Add dias</p>
+                        <p className="text-xs font-semibold">Evento</p>
+                        <p className="text-sm">Dias</p>
                     </div>
                 </div>
             </div>

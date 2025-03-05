@@ -28,7 +28,7 @@ const Login = () => {
             handleLogin(response.user.pk, response.access, response.refresh);
             login.close();
 
-            router.push('/')
+            router.push('/shows')
         } else {
             setErrors(response.non_field_errors);
         }

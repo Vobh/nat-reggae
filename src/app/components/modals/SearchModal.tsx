@@ -55,7 +55,7 @@ const SearchModal = () => {
 
     const contentLocation = (
         <>
-            <h2 className="mb-6 text-2xl">Local name</h2>
+            <h2 className="mb-6 text-2xl">Qual o seu país?</h2>
 
             <SelectCountry 
                 value={country}
@@ -74,7 +74,7 @@ const SearchModal = () => {
 
     const contentCheckin = (
         <>
-            <h2 className="mb-6 text-2xl">Day choosed</h2>
+            <h2 className="mb-6 text-2xl">Que dia é o show?</h2>
 
             <DatePicker 
                 value={dateRange}
@@ -100,7 +100,7 @@ const SearchModal = () => {
 
     const contentCheckout = (
         <>
-            <h2 className="mb-6 text-2xl">Last day</h2>
+            <h2 className="mb-6 text-2xl">Mais de um dia de show?</h2>
 
             <DatePicker 
                 value={dateRange}
@@ -126,11 +126,11 @@ const SearchModal = () => {
 
     const contentDetails = (
         <>
-            <h2 className="mb-6 text-2xl">Dias de show</h2>
+            <h2 className="mb-6 text-2xl">Total de dias</h2>
 
             <div className="space-y-4">
                 <div className="space-y-4">
-                    <label>Number of days:</label>
+                    <label>Quantos dias?</label>
                     <input 
                         type="number" 
                         min="1" 
@@ -169,7 +169,7 @@ const SearchModal = () => {
     }
     return (
         <Modal             
-            label="Search"
+            label="Pesquisa"
             content={content}
             close={searchModal.close}
             isOpen={searchModal.isOpen}
