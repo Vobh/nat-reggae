@@ -6,6 +6,7 @@ import stripe from "@/config/stripe";
 
 export async function POST(req: NextRequest, res: NextResponse) {
     const headersList = headers();
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
     const {cartDetails} = await req.json();
     const cartDetailsArray: _CartItem[] = Object.values(cartDetails) as _CartItem[];
 
@@ -27,8 +28,8 @@ export async function POST(req: NextRequest, res: NextResponse) {
             payment_method_types: ["card"],
             line_items: lineItems,
             mode: "payment",
-            success_url: `${headersList.get("origin")}/thank-you`,
-            cancel_url: `${headersList.get("origin")}/`,
+            success_url: `${baseUrl}/thank-you`,
+            cancel_url: `${baseUrl}/cancel`,
         });
 
         return NextResponse.json({sessionId: session.id});
