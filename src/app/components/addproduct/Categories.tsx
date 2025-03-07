@@ -13,18 +13,6 @@ const Categories: React.FC<CategoriesProps> = ({
         <>
             <div className="overflow-x-auto pt-3 cursor-pointer pb-6 flex items-center space-x-12">
                 <div 
-                    onClick={() => setCategory('')}
-                    className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${dataCategory == '' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
-                    <Image 
-                        src="/World.png"
-                        alt="Category - Beach"
-                        width={30}
-                        height={30}
-                    />
-                    <span className="text-xs">All</span>
-                </div>
-    
-                <div 
                     onClick={() => setCategory('axe')}
                     className={`pb-4 flex flex-col items-center space-y-2 border-b-2 ${dataCategory == 'axe' ? 'border-black' : 'border-white'} opacity-60 hover:border-gray-200 hover:opacity-100`}>
                     <Image 

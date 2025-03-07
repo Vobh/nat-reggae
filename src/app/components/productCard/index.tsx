@@ -2,16 +2,17 @@
 import Image from 'next/image'
 import AddToCart from '../cart/add-to-cart'
 import { ProductType } from '@/app/shop/page'
-
+import { useRouter } from "next/navigation";
 
 type Props = {
     product: ProductType;
 }
 
 export default function ProductCard({product}: Props) {
+    const router = useRouter();
     return (
         <div className='rounded'>
-            <a key={product.id} href="/shop/01982374" className="group">
+            <a key={product.id} onClick={() => router.push(`/shops/${product.id}`)} className="group">
                 <div
                     className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                     <Image

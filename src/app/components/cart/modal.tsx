@@ -15,14 +15,14 @@ export default function CartModal() {
 
     const renderCartMessages = (text: string) => {
         return <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-            <ShoppingCartIcon className="h-16"/>
+            <ShoppingCartIcon className="h-16"/>            
             <p className="mt-6 text-center text-2xl font-bold">{text}</p>
         </div>
     }
 
     return <>
         <button aria-label="Open cart" onClick={() => setOpenCart(true)}>
-            <OpenCart/>
+            <OpenCart />
         </button>
         <Transition.Root show={openCart} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={() => setOpenCart(false)}>
@@ -78,7 +78,7 @@ export default function CartModal() {
                                                             ? Object.values(cartDetails ?? {}).map((item) => (
                                                                 <CartItem key={item.id} item={item}/>
                                                             ))
-                                                            : renderCartMessages('Seu carrinho está zerado')
+                                                            : renderCartMessages('Seu carrinho está vaziu')
                                                         }
                                                         {/*{status === 'missing-items' && renderCartMessages('Your cart is empty.\n Add items to proceed to checkout.')}*/}
 
