@@ -8,6 +8,9 @@ import { DiscordMessage } from "./components/discord-message";
 import Image from "next/image";
 import { Icons } from "./components/icons";
 
+import Video from 'next-video';
+import grifo from '/videos/grifo.mp4';
+
 export default function Home() {
   return (
     <>
@@ -103,10 +106,22 @@ export default function Home() {
                   />
                 </AnimatedList>
               </MockDiscordUI>
-            </div>
+            </div>            
           </MaxWidthWrapper>
         </div>
+        
+        <div className="mt-6 flex justify-center items-center">
+          <Video 
+            src={grifo}
+            autoPlay
+            loop
+            playsInline
+            controls={false}
+            className=""
+          />
+        </div>
       </section>
+
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
           <div>

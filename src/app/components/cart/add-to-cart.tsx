@@ -1,11 +1,11 @@
 'use client';
 
 import {useState, useTransition} from "react";
-import {Product} from "@/types/type";
+import {_Product} from "@/types/type";
 import {useShoppingCart} from "use-shopping-cart";
 
 type Props = {
-    product: Product
+    product: _Product
 }
 
 enum Action {
@@ -66,7 +66,7 @@ export default function AddToCart({product}: Props) {
                 className='w-full border mt-4 py-2 px-8 rounded-lg hover:bg-black hover:text-white'
                 onClick={() => addItem(product, {count: quantity})}
                 >
-                    <span>Add To Cart</span>
+                    <span>Adicionar ao carrinho</span>
                 </button>
     </>
     )

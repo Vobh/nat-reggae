@@ -1,5 +1,5 @@
 import Image from "next/image";
-import VideoPage from "@/app/components/productCard/video";
+import VideoPage from "@/app/components/video";
 
 const ProductDetailPage = () => {
         
@@ -29,7 +29,15 @@ const ProductDetailPage = () => {
                     </p>
                 </div>
 
-                <VideoPage />
+                <aside className="mt-6 p-6 col-span-2 rounded-xl border border-gray-300 shadow-xl">
+                    <h2 className="mb-5 text-2xl">
+                        Video da banda
+                    </h2>
+                    <VideoPage />
+                    <div className="mb-4 flex justify-between align-center">
+                        <p>Curtir video da banda</p>                
+                    </div>
+                </aside>
             </div>
         </main>        
     ) 

@@ -7,6 +7,7 @@ import Signup from "./components/modals/Signup";
 import AddProduct from "./components/modals/AddProduct";
 import SearchModal from "./components/modals/SearchModal";
 import CartProvider from "./components/provider";
+import AddAddress from "./components/modals/AddAddress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           <SearchModal />
           <Signup />
           <AddProduct />
+          <AddAddress />
         </CartProvider>
       </body>
     </html>

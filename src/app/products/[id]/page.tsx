@@ -32,7 +32,6 @@ const ProductDetailPage = async ({params}: { params: {id: string}}) => {
                     <Link 
                         href={`/vendors/${product.vendor.id}`}
                         className="py-6 flex items-center space-x-4"
-
                     >
                         {product.vendor.avatar_url && (
                             <Image 

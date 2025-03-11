@@ -8,6 +8,7 @@ import { getUserId } from "@/app/lib/actions";
 import AddProductButton from "./AddProductButton";
 import OpenCart from "../cart/open-cart";
 import Cart from "../cart";
+import AddAddressButton from "./AddAddressButton";
 
 const Navbar = async () => {
     const userId = await getUserId();
@@ -27,10 +28,14 @@ const Navbar = async () => {
 
                     <div className="flex space-x-6">
                         <SearchFilters />
-                    </div>
+                    </div>                 
 
                     <div className="flex items-center space-x-6">
                         <AddProductButton 
+                            userId={userId}
+                        />
+
+                        <AddAddressButton 
                             userId={userId}
                         />
 

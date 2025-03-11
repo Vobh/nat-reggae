@@ -1,13 +1,18 @@
 'use client';
 
+import { getUserId } from "@/app/lib/actions";
 import { useRouter } from "next/navigation";
 import { useShoppingCart } from "use-shopping-cart";
 import { Heading } from "../components/heading";
 import CustomButton from "../components/forms/CustomButton";
 
-const TankYouPage = () => {
-    const { clearCart } = useShoppingCart();
+import AddAddressButton from "../components/navbar/AddAddressButton";
+
+const ThankYouPage = () => {
+    
     const router = useRouter();
+    const { clearCart } = useShoppingCart();
+
     return (
         <div className="relative py-24 sm:py-32 bg-brand-25">
             <div className="relative mx-auto text-center flex flex-col items-center gap-10">
@@ -18,9 +23,10 @@ const TankYouPage = () => {
                     <span className="relative bg-gradient-to-r
                     from-brand-700 to-brand-800 text-transparent
                     bg-clip-text">Para concluir, por favor clique no botão abaixo</span>
-                    </Heading>                    
+                    </Heading>                                                           
                 </div>
-            </div>
+            </div>            
+
             <div className="relative py-24 sm:py-32 bg-brand-25">
                 <div className="relative mx-auto text-center flex flex-col items-center gap-10">
                     <div className="w-full max-w-80">
@@ -35,8 +41,8 @@ const TankYouPage = () => {
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     )
 }
 
-export default TankYouPage; // className="relative z-10 h-14 w-full text-base shadow-lg transition-shadow duration-300 hover:shadow-xl">
+export default ThankYouPage;
