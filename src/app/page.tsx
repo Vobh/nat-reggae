@@ -9,7 +9,7 @@ import Image from "next/image";
 import { Icons } from "./components/icons";
 
 import Video from 'next-video';
-import grifo from '/videos/grifo.mp4';
+import vigo from '/videos/vigo.mp4';
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
               </Heading>
             </div>
 
-            <p className="text-base/7 text-gray-600 mx-w-prose text-center text-pretty">NatuReggae é um caminho muito fácil pra monitorar seus shows.
+            <p className="text-base/7 text-gray-600 mx-w-prose text-center text-pretty">O melhor jeito pra monitorar seus shows.
               Obtenha notificações de <span className="font-semibold text-gray-700">mensagens, novos usuários ou
                 qualquer outro evento
               </span>{" "}enviado diretamente pro seu Discord.
@@ -112,7 +112,7 @@ export default function Home() {
         
         <div className="mt-6 flex justify-center items-center">
           <Video 
-            src={grifo}
+            src={vigo}
             autoPlay
             loop
             playsInline

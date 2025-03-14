@@ -51,12 +51,12 @@ const AddAddress = () => {
             formData.append('cep', dataCep);
             formData.append('state', dataState);
 
-            const response = await apiService.post('/api/shops/sale/', formData);
+            const response = await apiService.post('/api/shops/create/', formData);
 
             if (response.success) {
                 console.log('Success :-)');
 
-                router.push('/thank-you/?added=true');
+                router.push('/shop/?added=true');
 
                 AddAddress.close();
             } else {
@@ -78,7 +78,7 @@ const AddAddress = () => {
         <>
             {currentStep == 1 ? (
                 <>
-                    <h2 className="mb-6 text-2xl">Entrada de dados para entrega</h2>
+                    <h2 className="mb-6 text-2xl">Salve seu endereço e compre ingressos online!</h2>
 
                     <div className="pt-3 pb-6 space-y-4">                        
                         <div className="flex flex-col space-y-2">

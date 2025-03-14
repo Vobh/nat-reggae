@@ -3,6 +3,7 @@
 import useLogin from "@/app/hooks/useLogin";
 import useAddAddress from "@/app/hooks/useAddAddress";
 import React from "react";
+import MenuLink from "./MenuLink";
 
 interface AddAddressButtonProps {
     userId?: string | null;
@@ -22,12 +23,10 @@ const AddAddressButton: React.FC<AddAddressButtonProps> = ({
         }
     }
     return (
-        <div 
+        <MenuLink 
+            label="📤 Meu endereço"
             onClick={yourAddress}
-            className="cursor-pointer p-2 text-sm font-semibold rounded-full hover:bg-gray-200"
-        >
-            Add address
-        </div>
+        />
     )
 }
 

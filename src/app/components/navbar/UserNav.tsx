@@ -6,6 +6,7 @@ import MenuLink from "./MenuLink";
 import useLogin from "@/app/hooks/useLogin";
 import useSignup from "@/app/hooks/useSignup";
 import LogoutButton from "../LogoutButton";
+import AddAddressButton from "./AddAddressButton";
 
 interface UserNavProps {
     userId?: string | null;
@@ -39,7 +40,7 @@ const UserNav: React.FC<UserNavProps> = ({
                     {userId ? (
                         <>
                             <MenuLink 
-                                label="Shop"
+                                label="Bilheteria"
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/shop');
@@ -55,7 +56,7 @@ const UserNav: React.FC<UserNavProps> = ({
                             />
 
                             <MenuLink 
-                                label="Inbox"
+                                label="Grupo"
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/inbox');
@@ -63,7 +64,7 @@ const UserNav: React.FC<UserNavProps> = ({
                             />
 
                             <MenuLink 
-                                label="My products"
+                                label="Meu show"
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/myproducts');
@@ -71,7 +72,7 @@ const UserNav: React.FC<UserNavProps> = ({
                             />
 
                             <MenuLink 
-                                label="My favorites"
+                                label="Meus favoritos"
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/myfavorites');
@@ -79,13 +80,15 @@ const UserNav: React.FC<UserNavProps> = ({
                             />
                                 
                             <MenuLink 
-                                label="My reservations"
+                                label="Reservas"
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/myreservations');
                                 }}
                             />
-
+                            <AddAddressButton 
+                                userId={userId}
+                            />
                             <LogoutButton />
                         </>
                     ) : (

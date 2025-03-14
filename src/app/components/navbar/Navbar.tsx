@@ -35,10 +35,6 @@ const Navbar = async () => {
                             userId={userId}
                         />
 
-                        <AddAddressButton 
-                            userId={userId}
-                        />
-
                         <UserNav 
                             userId={userId}
                         />

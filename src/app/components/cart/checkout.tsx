@@ -31,7 +31,7 @@ export default function CheckoutButton() {
 
     return (
         <button
-            onClick={() => cartCount > 0 && redirectToCheckout()}
+            onClick={() => {cartCount > 0 && redirectToCheckout()}}
             disabled={cartCount === 0}
             className="rounded-md border border-transparent bg-sky-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-sky-700 mr-2 disabled:bg-gray-600">
             Checkout
