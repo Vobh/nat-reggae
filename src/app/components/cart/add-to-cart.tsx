@@ -1,11 +1,12 @@
 'use client';
 
 import {useState, useTransition} from "react";
-import {_Product} from "@/types/type";
+// import {_Product} from "@/types/type";
+import { ProductType } from "../product-shops/ShopList";
 import {useShoppingCart} from "use-shopping-cart";
 
 type Props = {
-    product: _Product
+    product: ProductType
 }
 
 enum Action {

@@ -9,7 +9,7 @@ import Image from "next/image";
 import { Icons } from "./components/icons";
 
 import Video from 'next-video';
-import vigo from '/videos/vigo.mp4';
+import grifo from '/videos/grifo.mp4';
 
 export default function Home() {
   return (
@@ -112,11 +112,11 @@ export default function Home() {
         
         <div className="mt-6 flex justify-center items-center">
           <Video 
-            src={vigo}
+            src={grifo}
             autoPlay
             loop
             playsInline
-            controls={false}
+            controls={true}
             className=""
           />
         </div>

@@ -1,11 +1,11 @@
 // import {_Product} from '@/types/type'
 import Image from 'next/image'
 import AddToCart from '../cart/add-to-cart'
-import { ProductType } from '@/app/shop/page'
+import { ProductType } from '../product-shops/ShopList';
 import { useRouter } from "next/navigation";
 
 type Props = {
-    product: ProductType;
+    product: ProductType
 }
 
 export default function ProductCard({product}: Props) {

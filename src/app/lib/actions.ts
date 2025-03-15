@@ -28,8 +28,18 @@ export async function handleRefresh() {
                     maxAge: 60 * 60, // 60 minutes
                     path: '/'
                 });
+
+                return json.access;
+            } else {
+                resetAuthCookies();
             }
         })
+        .catch((error) => {
+            console.log('error', error);
+
+            resetAuthCookies();
+        })
+    return token;
 }
 
 export async function handleLogin(userId: string, accessToken: string, refreshToken: string) {
@@ -71,6 +81,10 @@ export async function getUserId() {
 
 export async function getAccessToken() {
     let accessToken = (await cookies()).get('session_access_token')?.value;
+
+    if (!accessToken) {
+        accessToken = await handleRefresh();
+    }
 
     return accessToken;
 }
